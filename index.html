@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hentpro - Bridging Law and Language with Precision</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1f4e79;
+            --secondary-color: #ffd700;
+            --primary-deep: #163a5b;
+            --azure-soft: #2b628f;
+            --white: #ffffff;
+            --black: #000000;
+            --text-dark: #000000;
+            --text-light: #2d2d2d;
+            --bg-light: #ffffff;
+            --border-color: #ddd;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Cambria, Georgia, serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #fcfdff;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background: linear-gradient(115deg, var(--primary-deep) 0%, var(--primary-color) 60%, var(--azure-soft) 100%);
+            box-shadow: 0 6px 24px rgba(0, 20, 60, 0.35);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            color: white;
+            padding: 14px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-title {
+            color: var(--secondary-color);
+            font-size: 46px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 14px;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: transparent;
+            color: var(--secondary-color);
+            border: none;
+            padding: 6px 0;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-btn:hover {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        .more-nav {
+            position: relative;
+        }
+
+        .more-nav-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            min-width: 210px;
+            background: var(--primary-deep);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 10px 24px rgba(0, 20, 60, 0.35);
+            z-index: 1100;
+            padding: 8px 0;
+        }
+
+        .more-nav-menu.is-open {
+            display: block;
+        }
+
+        .more-nav-item {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--secondary-color);
+            text-align: left;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .more-nav-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        nav {
+            display: none;
+            background: var(--primary-deep);
+            padding: 0 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            border-bottom: 2px solid var(--secondary-color);
+            flex-direction: column;
+        }
+
+        nav.is-open {
+            display: flex;
+        }
+
+        .mobile-nav-toggle {
+            display: none;
+            background: var(--primary-deep);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+        }
+
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 12px 0;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 40px;
+        }
+
+        section.hidden {
+            display: none;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: var(--black);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--black);
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* ===== HOME SECTION ===== */
+        #home {
+            background: #fcfdff;
+            text-align: left;
+            padding: 56px 40px;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 18px;
+            align-items: stretch;
+            max-width: 1120px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-card {
+            position: relative;
+            min-height: 440px;
+            padding: 42px 34px;
+            box-shadow: 0 18px 35px rgba(0, 30, 74, 0.12);
+        }
+
+        .hero-left {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-left h2 {
+            color: var(--secondary-color);
+            font-size: 40px;
+            line-height: 1.06;
+            margin-bottom: 18px;
+            border: none;
+            padding: 0;
+            text-transform: uppercase;
+        }
+
+        .hero-left p {
+            color: #2f2f2f;
+            max-width: 44ch;
+            line-height: 1.72;
+            margin-bottom: 18px;
+        }
+
+        .hero-left strong {
+            color: #111;
+            font-size: 30px;
+            line-height: 1.18;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 24px;
+        }
+
+        .hero-right {
+            background: linear-gradient(145deg, #5ab0ff 0%, var(--primary-color) 57%, var(--primary-deep) 100%);
+            border-top: 4px solid rgba(255, 255, 255, 0.28);
+            border-left: 3px solid rgba(255, 255, 255, 0.24);
+            color: #eaf5ff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 34px;
+        }
+
+        .hero-right h3 {
+            color: var(--secondary-color);
+            font-size: 42px;
+            margin: 0 0 10px 0;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        .hero-right h4 {
+            font-size: 18px;
+            color: #f2f8ff;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-right p {
+            color: rgba(240, 247, 255, 0.93);
+            margin-bottom: 14px;
+            line-height: 1.66;
+        }
+
+        .hero-right ul {
+            list-style: none;
+            margin: 0 0 20px 0;
+            padding: 0;
+        }
+
+        .hero-right li {
+            color: rgba(237, 246, 255, 0.95);
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .hero-right li::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            top: 9px;
+        }
+
+        .hero-icons {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 6px;
+            margin-bottom: 18px;
+        }
+
+        .hero-icon-item {
+            text-align: center;
+            font-size: 11px;
+            color: #eaf3ff;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-icon-circle {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            margin: 0 auto 8px auto;
+            background: rgba(255, 215, 0, 0.22);
+            border: 1px solid rgba(255, 215, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+        .hero-privacy-link {
+            color: #fff8c5;
+            font-size: 13px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            border-top: 1px solid rgba(255, 255, 255, 0.35);
+            padding-top: 10px;
+            align-self: flex-start;
+        }
+
+        .hero-privacy-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .cta-button {
+            background: linear-gradient(130deg, #ffe98e 0%, var(--secondary-color) 65%, #f0c900 100%);
+            color: #202020;
+            border: none;
+            padding: 10px 18px;
+            font-size: 15px;
+            border-radius: 0;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: 8px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            box-shadow: 0 8px 18px rgba(107, 87, 0, 0.22);
+        }
+
+        .cta-button:hover {
+            filter: brightness(1.04);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 20px rgba(107, 87, 0, 0.28);
+        }
+
+        .hero-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0), rgba(255, 215, 0, 0.9), rgba(255, 215, 0, 0));
+            margin-top: 6px;
+        }
+
+        .hero-middle {
+            background: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .hero-middle h2 {
+            font-size: 28px;
+            color: var(--black);
+            margin: 0 0 20px 0;
+            border: none;
+            padding: 0;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .hero-middle h3 {
+            font-size: 16px;
+            color: var(--black);
+            font-weight: 600;
+            margin: 15px 0 10px 0;
+        }
+
+        .hero-middle ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .hero-middle li {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .hero-middle li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .hero-image {
+            background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: var(--black);
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .description {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            display: none;
+        }
+
+        /* ===== ABOUT US SECTION ===== */
+        #about {
+            background: #ffffff;
+        }
+
+        #about h2 {
+            text-align: center;
+            border-bottom: none;
+            margin-bottom: 18px;
+            color: #4f79aa;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .about-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(31, 78, 121, 0.22);
+            margin: 0 0 28px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .about-item {
+            text-align: center;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 14px 14px 18px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-item img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 10px;
+            background: #f1f1f1;
+            border-radius: 2px;
+        }
+
+        .about-gold-title {
+            color: #cfa632;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .about-blue-title {
+            color: #4f79aa;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .about-item p {
+            color: #111;
+            margin: 0;
+            line-height: 1.55;
+            font-size: 14px;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        #services {
+            background: var(--bg-light);
+        }
+
+        #services h2 {
+            text-align: center;
+            border-bottom: none;
+            margin-bottom: 18px;
+            color: #4f79aa;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        #excellence h2,
+        #clients h2,
+        #vision h2,
+        #documentation h2,
+        #contact h2 {
+            text-align: center;
+            border-bottom: none;
+            margin-bottom: 18px;
+            color: #4f79aa;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .services-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(31, 78, 121, 0.22);
+            margin: 0 0 28px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .service-item {
+            text-align: center;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 14px 14px 18px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-item:hover {
+            box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+            transform: translateY(-4px);
+        }
+
+        .service-item img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 10px;
+            background: #f1f1f1;
+            border-radius: 2px;
+        }
+
+        .service-gold-title {
+            color: #cfa632;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .service-blue-title {
+            color: #4f79aa;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .service-item p {
+            color: #111;
+            margin: 0;
+            line-height: 1.55;
+            font-size: 14px;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        #contact {
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+            max-width: 1000px;
+            align-items: start;
+        }
+
+        .contact-visual {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+        }
+
+        .contact-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .contact-info {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .contact-form-panel {
+            margin-top: 30px;
+        }
+
+        #form-section {
+            background: white;
+            padding-top: 0;
+            padding-bottom: 56px;
+        }
+
+        .form-section-wrap {
+            max-width: 1044px;
+            margin: 0 auto;
+            padding-top: 0;
+            padding-left: 22px;
+            padding-right: 22px;
+        }
+
+        .contact-info h3 {
+            margin-top: 0;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-address {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .contact-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-map {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: stretch;
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            margin-top: 0;
+        }
+
+        .form-column {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .form-heading {
+            width: 100%;
+            margin-bottom: 24px;
+        }
+
+        .form-heading h2 {
+            text-align: center;
+            margin-bottom: 12px;
+            border: none;
+            color: #1f4e79;
+            font-size: 36px;
+        }
+
+        .form-heading p {
+            text-align: center;
+            margin-bottom: 0;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+
+        .form-column form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* ===== FORM ===== */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(30, 90, 150, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 13px 40px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #e6940f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        #testimonials {
+            background: var(--bg-light);
+        }
+
+        #testimonials h2 {
+            text-align: center;
+            border-bottom: none;
+            margin-bottom: 18px;
+            color: #4f79aa;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .testimonials-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(31, 78, 121, 0.22);
+            margin: 0 0 28px 0;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            display: grid;
+            grid-template-columns: 44px minmax(0, 1fr) 44px;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .testimonial-viewport {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.45s ease;
+            will-change: transform;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 16px 16px 18px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--secondary-color);
+            text-align: center;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 16px;
+            border-radius: 2px;
+            background: #f1f1f1;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .testimonial-source {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-style: normal;
+        }
+
+        .testimonial-slide-title {
+            color: #cfa632;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-slide-subtitle {
+            color: #4f79aa;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(31, 78, 121, 0.35);
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.25s ease;
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .testimonial-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            font-size: 28px;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(31, 78, 121, 0.24);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .testimonial-arrow:hover {
+            background: var(--primary-deep);
+            transform: translateY(-1px);
+        }
+
+        .testimonial-arrow:focus-visible,
+        .testimonial-dot:focus-visible {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        /* ===== QNA SECTION ===== */
+        #qna {
+            background: var(--white);
+        }
+
+        #qna h2 {
+            text-align: center;
+            border-bottom: none;
+            margin-bottom: 18px;
+            color: #4f79aa;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .qna-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(31, 78, 121, 0.22);
+            margin: 0 0 28px 0;
+        }
+
+        .qna-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .qna-item {
+            text-align: center;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 14px 14px 18px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .qna-item img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 10px;
+            background: #f1f1f1;
+            border-radius: 2px;
+        }
+
+        .qna-gold-title {
+            color: #cfa632;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .qna-blue-title {
+            color: #4f79aa;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .qna-item p {
+            color: #111;
+            margin: 0;
+            line-height: 1.55;
+            font-size: 14px;
+        }
+
+        /* ===== CLIENTS SECTION ===== */
+        #clients {
+            background: white;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .client-logo {
+            width: 150px;
+            height: 150px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .client-logo:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        /* ===== EXCELLENCE SECTION ===== */
+        #excellence {
+            background: var(--bg-light);
+        }
+
+        .excellence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .excellence-item {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .excellence-item h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ===== VISION & MISSION ===== */
+        #vision {
+            background: white;
+        }
+
+        .vm-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+            max-width: 1000px;
+        }
+
+        .vm-box {
+            background: linear-gradient(135deg, rgba(30, 90, 150, 0.05) 0%, rgba(244, 165, 0, 0.05) 100%);
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .vm-box h3 {
+            margin-top: 0;
+        }
+
+        /* ===== DOCUMENTATION SECTION ===== */
+        #documentation {
+            background: var(--bg-light);
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .doc-item {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .doc-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+        }
+
+        .doc-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .doc-item.is-hidden {
+            display: none;
+        }
+
+        .docs-more-wrap {
+            margin-top: 22px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .docs-more-btn {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+            padding: 10px 26px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .docs-more-btn:hover {
+            background: var(--primary-deep);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(120deg, var(--primary-deep) 0%, var(--primary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 40px;
+            margin-top: 0;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand .logo {
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        footer .logo-img {
+            width: 170px;
+            height: 170px;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.22));
+        }
+
+        footer .logo-text {
+            align-items: center;
+            text-align: center;
+        }
+
+        footer .logo-title {
+            font-size: 54px;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        footer .logo-subtitle {
+            font-size: 18px;
+            line-height: 1.25;
+            letter-spacing: 0.5px;
+            color: var(--secondary-color);
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.9);
+            margin: 10px 0;
+        }
+
+        /* ===== DATA CONFIDENTIALITY NOTICE ===== */
+        .confidentiality-notice {
+            background: linear-gradient(120deg, var(--primary-deep) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 22px 40px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .confidentiality-notice strong {
+            color: var(--secondary-color);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .hero-left h2 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            #home {
+                padding: 44px 24px;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                min-height: auto;
+                padding: 30px 24px;
+            }
+
+            .hero-right {
+                margin-top: 0;
+            }
+
+            .hero-left strong {
+                font-size: 24px;
+            }
+
+            .about-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .qna-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                padding: 15px 20px;
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            .logo-img {
+                width: 56px;
+                height: 56px;
+            }
+
+            .logo-title {
+                font-size: 30px;
+            }
+
+            .logo-subtitle {
+                font-size: 11px;
+                letter-spacing: 1.2px;
+            }
+
+            .nav-buttons {
+                display: none;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            nav a {
+                padding: 10px 0;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .hero-left h2 {
+                font-size: 30px;
+            }
+
+            .hero-right h3 {
+                font-size: 34px;
+            }
+
+            .testimonial-carousel {
+                grid-template-columns: 36px minmax(0, 1fr) 36px;
+                gap: 10px;
+            }
+
+            .testimonial-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 24px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .vm-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                padding: 28px 20px;
+            }
+
+            .contact-visual {
+                min-height: 260px;
+            }
+
+            .map-frame {
+                min-height: 340px;
+            }
+
+            .contact-form-map {
+                grid-template-columns: 1fr;
+            }
+
+            .form-heading h2 {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .hero-left h2 {
+                font-size: 18px;
+            }
+
+            .hero-left strong {
+                font-size: 20px;
+            }
+
+            .hero-right h3 {
+                font-size: 28px;
+            }
+
+            .testimonial-carousel {
+                grid-template-columns: 32px minmax(0, 1fr) 32px;
+                gap: 8px;
+            }
+
+            .testimonial-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 20px;
+            }
+
+            .testimonial-card {
+                padding: 14px 14px 16px;
+            }
+
+            .testimonial-slide-title {
+                font-size: 22px;
+            }
+
+            .testimonial-slide-subtitle {
+                font-size: 15px;
+            }
+
+            section {
+                padding: 40px 15px;
+            }
+
+            .hero-icons {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-item img {
+                height: 220px;
+            }
+
+            .about-gold-title {
+                font-size: 24px;
+            }
+
+            .about-blue-title {
+                font-size: 17px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .qna-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-gold-title {
+                font-size: 24px;
+            }
+
+            .service-blue-title {
+                font-size: 17px;
+            }
+
+            .qna-gold-title {
+                font-size: 24px;
+            }
+
+            .qna-blue-title {
+                font-size: 17px;
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .max-width {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="aset/logo biru.png" alt="HENTPRO Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">HENTPRO</span>
+                    <span class="logo-subtitle">Bridging Law and Language with Precision</span>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="scrollToSection('home')">HOME</button>
+                <button class="nav-btn" onclick="scrollToSection('about')">ABOUT US</button>
+                <button class="nav-btn" onclick="scrollToSection('services')">OUR SERVICES</button>
+                <button class="nav-btn" onclick="scrollToSection('excellence')">OUR EXCELLENCE</button>
+                <button class="nav-btn" onclick="scrollToSection('testimonials')">TESTIMONIAL</button>
+                <button class="nav-btn" onclick="scrollToSection('qna')">QnA</button>
+                <div class="more-nav" id="desktopMoreNav">
+                    <button class="nav-btn" type="button" id="desktopMoreBtn" aria-expanded="false" onclick="toggleDesktopMoreNav(event)">MORE</button>
+                    <div class="more-nav-menu" id="desktopMoreMenu">
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('clients')">OUR CLIENTS</button>
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('vision')">VISION & MISSION</button>
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('documentation')">DOCUMENTATION</button>
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('contact')">CONTACT US</button>
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('form-section')">FORM</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="mobile-nav-toggle" type="button" onclick="toggleMobileNav()" aria-expanded="false" aria-controls="primary-nav" id="mobileNavBtn">MENU</button>
+
+        <nav id="primary-nav">
+            <a href="#home" onclick="scrollToSection('home'); return false;">HOME</a>
+            <a href="#about" onclick="scrollToSection('about'); return false;">ABOUT US</a>
+            <a href="#services" onclick="scrollToSection('services'); return false;">OUR SERVICES</a>
+            <a href="#excellence" onclick="scrollToSection('excellence'); return false;">OUR EXCELLENCE</a>
+            <a href="#testimonials" onclick="scrollToSection('testimonials'); return false;">TESTIMONIAL</a>
+            <a href="#qna" onclick="scrollToSection('qna'); return false;">QnA</a>
+            <a href="#clients" onclick="scrollToSection('clients'); return false;">OUR CLIENTS</a>
+            <a href="#vision" onclick="scrollToSection('vision'); return false;">VISION & MISSION</a>
+            <a href="#documentation" onclick="scrollToSection('documentation'); return false;">DOCUMENTATION</a>
+            <a href="#contact" onclick="scrollToSection('contact'); return false;">CONTACT US</a>
+            <a href="#form-section" onclick="scrollToSection('form-section'); return false;">FORM</a>
+        </nav>
+    </header>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home">
+        <div class="hero-layout">
+            <div class="hero-card hero-left">
+                <h2 id="home-title">Integrity and Balance in Law and Language</h2>
+                <p id="home-subtitle">
+                    We provide professional linguistic support for intricate legal matters,
+                    blending precision, confidentiality, and balanced perspectives.
+                </p>
+                <strong id="home-highlight">Data confidentiality is our foundation.</strong>
+                <button class="cta-button" onclick="scrollToSection('contact')" id="home-cta">Consult Us</button>
+            </div>
+
+            <div class="hero-card hero-right">
+                <h3>Data Confidentiality</h3>
+                <h4>Your data protection is our top priority.</h4>
+                <p>
+                    We maintain strict confidentiality protocols for all communications,
+                    legal documents, and client data.
+                </p>
+                <p>
+                    Every translation, consultation, and legal language workflow is
+                    executed under secure and accountable procedures.
+                </p>
+                <ul>
+                    <li>Document-level encryption</li>
+                    <li>Restricted-access handling</li>
+                    <li>Regulatory compliance ready</li>
+                </ul>
+                <div class="hero-icons">
+                    <div class="hero-icon-item">
+                        <div class="hero-icon-circle">🔐</div>
+                        ENCRYPTION
+                    </div>
+                    <div class="hero-icon-item">
+                        <div class="hero-icon-circle">🛡️</div>
+                        ACCESS CONTROL
+                    </div>
+                    <div class="hero-icon-item">
+                        <div class="hero-icon-circle">⚖️</div>
+                        COMPLIANCE
+                    </div>
+                </div>
+                <a href="#contact" class="hero-privacy-link" onclick="scrollToSection('contact'); return false;">View Privacy Commitment</a>
+                <div class="hero-divider"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT US SECTION ===== -->
+    <section id="about">
+        <div class="max-width">
+            <h2 id="about-title">About Us</h2>
+            <div class="about-divider"></div>
+
+            <div class="about-grid">
+                <div class="about-item">
+                    <img src="aset/legal expertise.png" alt="Legal Expertise">
+                    <h3 class="about-gold-title">Legal Expertise</h3>
+                    <h4 class="about-blue-title">Absolute Legal Accuracy.</h4>
+                    <p>Legal document translation with precise juridical terminology and deep legal context understanding.</p>
+                </div>
+
+                <div class="about-item">
+                    <img src="aset/strategic balance.png" alt="Strategic Balance">
+                    <h3 class="about-gold-title">Strategic Balance</h3>
+                    <h4 class="about-blue-title">Language and Legal Certainty.</h4>
+                    <p>Balancing linguistic precision with legal logic to produce documents that are valid and contextually sound.</p>
+                </div>
+
+                <div class="about-item">
+                    <img src="aset/Absolute Confidentiality.jpg" alt="Absolute Confidentiality">
+                    <h3 class="about-gold-title">Absolute Confidentiality</h3>
+                    <h4 class="about-blue-title">Maximum Data Protection.</h4>
+                    <p>Every process is secured through strict confidentiality protocols and non-disclosure agreements.</p>
+                </div>
+
+                <div class="about-item">
+                    <img src="aset/profesional excellence.jpg" alt="Professional Excellence">
+                    <h3 class="about-gold-title">Professional Excellence</h3>
+                    <h4 class="about-blue-title">Global Institutional Standard.</h4>
+                    <p>Professional services trusted for litigation requirements, corporate contracts, and official international documents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services">
+        <div class="max-width">
+            <h2 id="services-title">Our Services</h2>
+            <div class="services-divider"></div>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <img src="aset/data security.png" alt="Data Security">
+                    <h3 class="service-gold-title">Data Security</h3>
+                    <h4 class="service-blue-title">Sovereign Data Protection.</h4>
+                    <p>High-encryption handling and confidentiality assurance for client information with maximum security.</p>
+                </div>
+                <div class="service-item">
+                    <img src="aset/legal drafting.png" alt="Legal Drafting">
+                    <h3 class="service-gold-title">Legal Drafting</h3>
+                    <h4 class="service-blue-title">Precise Legal Documentation.</h4>
+                    <p>Preparation and revision of legal documents using accurate and formal terminology standards.</p>
+                </div>
+                <div class="service-item">
+                    <img src="aset/document.png" alt="Document Review">
+                    <h3 class="service-gold-title">Document Review</h3>
+                    <h4 class="service-blue-title">Accurate File Assessment.</h4>
+                    <p>Careful review of legal documents to ensure clarity, consistency, and readiness for formal use.</p>
+                </div>
+                <div class="service-item">
+                    <img src="aset/contract translation.png" alt="Contract Translation">
+                    <h3 class="service-gold-title">Contract Translation</h3>
+                    <h4 class="service-blue-title">Certified Contract Solutions.</h4>
+                    <p>Professional translation of contracts and international agreements with legal accuracy and clarity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXCELLENCES SECTION ===== -->
+    <section id="excellence">
+        <div class="max-width">
+            <h2 id="excellence-title">Our Excellence</h2>
+            <div class="excellence-grid">
+                <div class="excellence-item">
+                    <h3>✨ Assured Quality</h3>
+                    <p>Every translation passes a strict quality assurance process to ensure outstanding results.</p>
+                </div>
+                <div class="excellence-item">
+                    <h3>⏱️ On-Time Delivery</h3>
+                    <p>We understand deadlines and consistently deliver according to agreed timelines.</p>
+                </div>
+                <div class="excellence-item">
+                    <h3>💡 Experienced Experts</h3>
+                    <p>Our translators and consultants hold international certifications and extensive practical experience.</p>
+                </div>
+                <div class="excellence-item">
+                    <h3>🔐 Premium Data Security</h3>
+                    <p>Client data is protected by strong encryption and accessible only to authorized personnel.</p>
+                </div>
+                <div class="excellence-item">
+                    <h3>🌍 Global Reach</h3>
+                    <p>We support multiple language pairs with deep cultural and legal context understanding.</p>
+                </div>
+                <div class="excellence-item">
+                    <h3>📞 Full Support</h3>
+                    <p>Our customer support team is ready to help whenever you need assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section id="testimonials">
+        <div class="max-width">
+            <h2 id="testimonials-title">Client Testimonial</h2>
+            <div class="testimonials-divider"></div>
+
+            <div class="testimonial-carousel" aria-label="Client testimonial carousel">
+                <button class="testimonial-arrow" type="button" aria-label="Previous testimonial" onclick="moveTestimonial(-1)">‹</button>
+
+                <div class="testimonial-viewport">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <article class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <img src="aset/legal expertise.png" alt="Legal Expertise testimonial image">
+                                <div class="testimonial-slide-title">Legal Expertise</div>
+                                <div class="testimonial-slide-subtitle">Absolute Legal Accuracy.</div>
+                                <div class="testimonial-content">
+                                    "HENTPRO delivered precise legal translations with excellent consistency and professionalism."
+                                </div>
+                                <div class="testimonial-source">- PT Maju Jaya, Jakarta</div>
+                            </div>
+                        </article>
+
+                        <article class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <img src="aset/strategic balance.png" alt="Strategic Balance testimonial image">
+                                <div class="testimonial-slide-title">Strategic Balance</div>
+                                <div class="testimonial-slide-subtitle">Language and Legal Certainty.</div>
+                                <div class="testimonial-content">
+                                    "Their work balanced legal meaning and language clarity perfectly for our international documents."
+                                </div>
+                                <div class="testimonial-source">- Maju Bersama Law Office, Surabaya</div>
+                            </div>
+                        </article>
+
+                        <article class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <img src="aset/Absolute Confidentiality.jpg" alt="Absolute Confidentiality testimonial image">
+                                <div class="testimonial-slide-title">Absolute Confidentiality</div>
+                                <div class="testimonial-slide-subtitle">Maximum Data Protection.</div>
+                                <div class="testimonial-content">
+                                    "We trust HENTPRO because confidentiality is handled with disciplined security and care."
+                                </div>
+                                <div class="testimonial-source">- PT Global Trading, Bandung</div>
+                            </div>
+                        </article>
+
+                        <article class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <img src="aset/profesional excellence.jpg" alt="Professional Excellence testimonial image">
+                                <div class="testimonial-slide-title">Professional Excellence</div>
+                                <div class="testimonial-slide-subtitle">Global Institutional Standard.</div>
+                                <div class="testimonial-content">
+                                    "The final result was polished, reliable, and suitable for formal institutional use."
+                                </div>
+                                <div class="testimonial-source">- Legal Partners Asia, Singapore</div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <button class="testimonial-arrow" type="button" aria-label="Next testimonial" onclick="moveTestimonial(1)">›</button>
+            </div>
+
+            <div class="testimonial-dots" id="testimonialDots" aria-label="Testimonial pagination"></div>
+        </div>
+    </section>
+
+    <!-- ===== QNA SECTION ===== -->
+    <section id="qna">
+        <div class="max-width">
+            <h2>QnA</h2>
+            <div class="qna-divider"></div>
+
+            <div class="qna-grid">
+                <div class="qna-item">
+                    <img src="aset/QNA.PNG" alt="Data Confidentiality">
+                    <h3 class="qna-gold-title">Data Confidentiality</h3>
+                    <h4 class="qna-blue-title">How is my document security protected?</h4>
+                    <p>All documents are handled in encrypted environments with strict confidentiality procedures and legal NDAs.</p>
+                </div>
+                <div class="qna-item">
+                    <img src="aset/QNA2.PNG" alt="Certification & Validity">
+                    <h3 class="qna-gold-title">Certification & Validity</h3>
+                    <h4 class="qna-blue-title">Are the translations officially recognized?</h4>
+                    <p>Yes. We provide certified translations that meet formal standards for institutions, courts, and government use.</p>
+                </div>
+                <div class="qna-item">
+                    <img src="aset/QNA3.PNG" alt="Legal Precision">
+                    <h3 class="qna-gold-title">Legal Precision</h3>
+                    <h4 class="qna-blue-title">How do you maintain legal accuracy?</h4>
+                    <p>Every text is reviewed carefully for legal terminology, structure, and meaning to avoid interpretation errors.</p>
+                </div>
+                <div class="qna-item">
+                    <img src="aset/QNA4.PNG" alt="Turnaround Time">
+                    <h3 class="qna-gold-title">Turnaround Time</h3>
+                    <h4 class="qna-blue-title">How long does a project usually take?</h4>
+                    <p>Delivery time depends on document volume and complexity, but urgent requests can be prioritized with clear scheduling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENTS SECTION ===== -->
+    <section id="clients">
+        <div class="max-width">
+            <h2 id="clients-title">Our Clients</h2>
+            <p id="clients-desc">We are trusted by leading companies and institutions across Indonesia.</p>
+            <div class="clients-grid">
+                <div class="client-logo">PT Maju Jaya</div>
+                <div class="client-logo">Kantor Hukum ABC</div>
+                <div class="client-logo">Global Corp</div>
+                <div class="client-logo">Bank Internasional</div>
+                <div class="client-logo">Universitas XYZ</div>
+                <div class="client-logo">Trading Company</div>
+                <div class="client-logo">Legal Partners</div>
+                <div class="client-logo">PT Sukses Bersama</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VISION & MISSION SECTION ===== -->
+    <section id="vision">
+        <div class="max-width">
+            <h2 id="vision-title">Vision & Mission</h2>
+            <div class="vm-container">
+                <div class="vm-box">
+                    <h3 id="vision-subtitle">👁️ Our Vision</h3>
+                    <p id="vision-text">
+                        To become Indonesia's leading provider of translation and legal linguistic consultation services,
+                        trusted by legal institutions, businesses, and government in delivering accurate, professional,
+                        and high-integrity language solutions.
+                    </p>
+                </div>
+                <div class="vm-box">
+                    <h3 id="mission-subtitle">🎯 Our Mission</h3>
+                    <p id="mission-text">
+                        To provide high-quality certified translation and legal linguistic consultation services, protect client
+                        confidentiality with best-in-class security standards, and continuously innovate by combining language
+                        expertise with legal system understanding to support client success.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOCUMENTATION SECTION ===== -->
+    <section id="documentation">
+        <div class="max-width">
+            <h2 id="documentation-title">Documentation</h2>
+            <p id="documentation-desc">A collection of photos and records from projects we have successfully delivered.</p>
+            <div class="docs-grid">
+                <div class="doc-item">
+                    <div class="doc-icon">📸</div>
+                    <h3>Client Documentation</h3>
+                    <p>Highlights from client consultation sessions and completed project activities.</p>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">📁</div>
+                    <h3>Project Portfolio</h3>
+                    <p>Examples of translated and certified documents from selected assignments.</p>
+                </div>
+                <div class="doc-item">
+                    <div class="doc-icon">🏆</div>
+                    <h3>Certifications & Awards</h3>
+                    <p>Official certifications and recognitions we have received from trusted institutions.</p>
+                </div>
+                <div class="doc-item is-hidden docs-extra-item">
+                    <div class="doc-icon">📊</div>
+                    <h3>Performance Reports</h3>
+                    <p>Transparent reports on quality, timeliness, and client satisfaction metrics.</p>
+                </div>
+                <div class="doc-item is-hidden docs-extra-item">
+                    <div class="doc-icon">🎓</div>
+                    <h3>Team & Credentials</h3>
+                    <p>Profiles of our professional team with international certifications and credentials.</p>
+                </div>
+                <div class="doc-item is-hidden docs-extra-item">
+                    <div class="doc-icon">📚</div>
+                    <h3>References & Standards</h3>
+                    <p>Legal references, international standards, and practical guidelines we follow.</p>
+                </div>
+            </div>
+            <div class="docs-more-wrap">
+                <button type="button" class="docs-more-btn" id="docsMoreBtn" aria-expanded="false">MORE</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact">
+        <div class="max-width">
+            <h2 id="contact-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-visual">
+                    <img src="aset/contact us.PNG" alt="Contact Us">
+                </div>
+
+                <div>
+                    <div class="contact-info">
+                        <h3 id="contact-info-title">Hentpro</h3>
+                        <div class="contact-item">
+                            <strong id="address-label">Address:</strong>
+                            <p class="contact-address">
+                                SAHID SUDIRMAN CENTER 56TH FLOOR<br>
+                                JL. JENDERAL SUDIRMAN NO. 86, <br>
+                                JAKARTA 10220<br>
+                                INDONESIA
+                            </p>
+                        </div>
+                        <div class="contact-item">
+                            <strong id="phone-label">Phone:</strong>
+                            <p><a href="tel:+622182272411">0813-8896-6868</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <strong id="email-label">Email:</strong>
+                            <p><a href="mailto:hentpro45@gmail.com">hentpro45@gmail.com</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <strong id="website-label">Website:</strong>
+                            <p><a href="https://www.hentpro.com" target="_blank">www.hentpro.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FORM SECTION ===== -->
+    <section id="form-section">
+        <div class="max-width form-section-wrap">
+            <div class="form-heading" style="text-align: center; margin-bottom: 28px;">
+                <h2 id="form-title">Send Message</h2>
+                <p id="form-desc">We welcome inquiries about translation services, legal consultation, and custom requests. Please complete the form below.</p>
+            </div>
+
+            <div class="contact-form-map">
+                <iframe
+                    class="map-frame"
+                    title="HENTPRO Office Location"
+                    src="https://www.google.com/maps?q=SAHID%20SUDIRMAN%20CENTER%2056TH%20FLOOR%20JL.%20JENDERAL%20SUDIRMAN%20NO.%2086%20JAKARTA%2010220%20INDONESIA&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+                <div class="form-column">
+                    <iframe
+                                            id="JotFormIFrame-260977846200058"
+                      title="Send us a message"
+                      onload="window.parent.scrollTo(0,0)"
+                      allowtransparency="true"
+                      allow="geolocation; microphone; camera; fullscreen; payment"
+                                            src="https://form.jotform.com/260977846200058"
+                      frameborder="0"
+                      style="min-width:100%;max-width:100%;height:539px;border:none;"
+                      scrolling="no"
+                    >
+                    </iframe>
+                    <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+                                        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260977846200058']", "https://form.jotform.com/")</script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DATA CONFIDENTIALITY NOTICE ===== -->
+    <div class="confidentiality-notice">
+        <strong>🔒 DATA CONFIDENTIALITY NOTICE:</strong> All information you submit is treated as confidential and
+        processed in accordance with international data security standards and applicable personal data protection regulations.
+        Your data is used only for service purposes and is never shared with unauthorized parties.
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-text">
+                        <span class="logo-title">HENTPRO</span>
+                        <span class="logo-subtitle">Bridging Law and Language with Precision</span>
+                    </div>
+                    <img src="aset/logo biru.png" alt="HENTPRO Logo" class="logo-img">
+                </div>
+            </div>
+            <p id="footer-desc">Hentpro - Bridging Law and Language with Precision</p>
+            <p id="footer-copyright">© 2026 Hentpro. All rights reserved.</p>
+            <p id="footer-professional">Professional • Integrity • Balanced</p>
+        </div>
+    </footer>
+
+    <script>
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const testimonialDots = document.getElementById('testimonialDots');
+        const testimonialSlides = testimonialTrack ? Array.from(testimonialTrack.children) : [];
+        let activeTestimonialIndex = 0;
+
+        function renderTestimonialDots() {
+            if (!testimonialDots || testimonialSlides.length === 0) return;
+
+            testimonialDots.innerHTML = '';
+            testimonialSlides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'testimonial-dot' + (index === activeTestimonialIndex ? ' active' : '');
+                dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+                dot.addEventListener('click', () => showTestimonial(index));
+                testimonialDots.appendChild(dot);
+            });
+        }
+
+        function showTestimonial(index) {
+            if (!testimonialTrack || testimonialSlides.length === 0) return;
+
+            activeTestimonialIndex = (index + testimonialSlides.length) % testimonialSlides.length;
+            testimonialTrack.style.transform = `translateX(-${activeTestimonialIndex * 100}%)`;
+
+            if (testimonialDots) {
+                const dots = testimonialDots.querySelectorAll('.testimonial-dot');
+                dots.forEach((dot, dotIndex) => {
+                    dot.classList.toggle('active', dotIndex === activeTestimonialIndex);
+                });
+            }
+        }
+
+        function moveTestimonial(direction) {
+            showTestimonial(activeTestimonialIndex + direction);
+        }
+
+        function initDocumentationToggle() {
+            const toggleButton = document.getElementById('docsMoreBtn');
+            const hiddenItems = document.querySelectorAll('.docs-extra-item');
+            if (!toggleButton || hiddenItems.length === 0) return;
+
+            toggleButton.addEventListener('click', () => {
+                const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+                const nextExpanded = !isExpanded;
+
+                hiddenItems.forEach((item) => {
+                    item.classList.toggle('is-hidden', !nextExpanded);
+                });
+
+                toggleButton.setAttribute('aria-expanded', String(nextExpanded));
+                toggleButton.textContent = nextExpanded ? 'LESS' : 'MORE';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTestimonialDots();
+            showTestimonial(0);
+            initDocumentationToggle();
+        });
+
+        function toggleMobileNav() {
+            const nav = document.getElementById('primary-nav');
+            const toggleButton = document.getElementById('mobileNavBtn');
+            if (!nav || !toggleButton) return;
+
+            const isOpen = nav.classList.toggle('is-open');
+            toggleButton.setAttribute('aria-expanded', String(isOpen));
+            toggleButton.textContent = isOpen ? 'CLOSE MENU' : 'MENU';
+        }
+
+        function closeMobileNav() {
+            const nav = document.getElementById('primary-nav');
+            const toggleButton = document.getElementById('mobileNavBtn');
+            if (!nav || !toggleButton) return;
+
+            nav.classList.remove('is-open');
+            toggleButton.setAttribute('aria-expanded', 'false');
+            toggleButton.textContent = 'MENU';
+        }
+
+        function closeDesktopMoreNav() {
+            const moreMenu = document.getElementById('desktopMoreMenu');
+            const moreButton = document.getElementById('desktopMoreBtn');
+            if (!moreMenu || !moreButton) return;
+
+            moreMenu.classList.remove('is-open');
+            moreButton.setAttribute('aria-expanded', 'false');
+        }
+
+        function toggleDesktopMoreNav(event) {
+            event.stopPropagation();
+
+            const moreMenu = document.getElementById('desktopMoreMenu');
+            const moreButton = document.getElementById('desktopMoreBtn');
+            if (!moreMenu || !moreButton) return;
+
+            const isOpen = moreMenu.classList.toggle('is-open');
+            moreButton.setAttribute('aria-expanded', String(isOpen));
+        }
+
+        // ===== SCROLL TO SECTION =====
+        function scrollToSection(sectionId) {
+            closeDesktopMoreNav();
+            closeMobileNav();
+
+            const section = document.getElementById(sectionId);
+            if (!section) return;
+
+            const targetHeading = section.querySelector('h2');
+            const targetElement = targetHeading || section;
+            const header = document.querySelector('header');
+
+            requestAnimationFrame(() => {
+                const headerOffset = header ? header.getBoundingClientRect().height + 8 : 0;
+                const targetY = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: Math.max(0, targetY),
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMobileNav();
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMobileNav();
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            const moreWrap = document.getElementById('desktopMoreNav');
+            if (!moreWrap) return;
+            if (!moreWrap.contains(event.target)) {
+                closeDesktopMoreNav();
+            }
+        });
+    </script>
+</body>
+</html>
