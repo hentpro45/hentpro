@@ -14,7 +14,7 @@
 
         :root {
             --primary-color: #1f4e79;
-            --secondary-color: #ffd700;
+            --secondary-color: #d4af37;
             --primary-deep: #163a5b;
             --azure-soft: #2b628f;
             --white: #ffffff;
@@ -523,32 +523,77 @@
             margin: 0 0 28px 0;
         }
 
+        .about-intro {
+            width: 100%;
+            max-width: none;
+            margin: 28px 0 0;
+            padding: 24px 30px;
+            text-align: left;
+            color: #111;
+            font-family: Cambria, Georgia, serif;
+            font-size: 14px;
+            line-height: 1.55;
+            letter-spacing: 0;
+            background: #ffffff;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(22, 58, 91, 0.08);
+        }
+
+        .about-intro p {
+            margin-bottom: 20px;
+            text-wrap: pretty;
+            color: #111;
+        }
+
+        .about-intro p:first-child {
+            color: #cfa632;
+            font-weight: 700;
+        }
+
+        .about-intro p:nth-child(2) {
+            color: #4f79aa;
+            font-weight: 700;
+        }
+
+        .about-intro p:last-child {
+            color: #111;
+        }
+
+        .about-intro p:last-child {
+            margin-bottom: 0;
+        }
+
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 22px;
+            margin-top: 28px;
             align-items: stretch;
         }
 
         .about-item {
             text-align: center;
-            height: 100%;
+            height: 340px;
             background: rgba(255, 255, 255, 0.95);
-            padding: 14px 14px 18px;
+            padding: 12px;
             border-radius: 6px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            border: 1px solid rgba(31, 78, 121, 0.12);
         }
 
         .about-item img {
             width: 100%;
-            aspect-ratio: 4 / 3;
-            height: auto;
-            object-fit: cover;
+            height: 240px;
+            object-fit: contain;
+            object-position: center;
             display: block;
             margin-bottom: 10px;
-            background: #f1f1f1;
+            background: #ffffff;
             border-radius: 2px;
         }
 
@@ -556,7 +601,14 @@
             color: #cfa632;
             font-size: 28px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 0;
+            line-height: 1.2;
+            line-clamp: 1;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .about-blue-title {
@@ -609,7 +661,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 22px;
             align-items: stretch;
         }
@@ -720,6 +772,12 @@
 
         .contact-info h3 {
             margin-top: 0;
+            text-transform: uppercase;
+            color: var(--primary-color);
+        }
+
+        .fax-label {
+            color: var(--secondary-color) !important;
         }
 
         .contact-item {
@@ -997,6 +1055,91 @@
             outline-offset: 2px;
         }
 
+        /* ===== CLIENTS SECTION ===== */
+        .clients-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(31, 78, 121, 0.22);
+            margin: 0 0 28px 0;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin-top: 24px;
+        }
+
+        #client-segments-title {
+            text-align: center;
+            color: #4f79aa;
+        }
+
+        #team-title {
+            text-align: center;
+            color: #4f79aa;
+        }
+
+        #clients h2 {
+            text-align: center;
+            color: #4f79aa;
+        }
+
+        .clients-carousel {
+            overflow: hidden;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .clients-track {
+            display: flex;
+            gap: 18px;
+            width: max-content;
+            animation: clients-scroll 28s linear infinite;
+            padding: 4px 0;
+        }
+
+        .clients-track:hover {
+            animation-play-state: paused;
+        }
+
+        .client-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            height: 120px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        #clients .client-item {
+            flex: 0 0 180px;
+        }
+
+        .client-item:hover {
+            box-shadow: 0 4px 16px rgba(31, 78, 121, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .client-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes clients-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(calc(-198px * 10));
+            }
+        }
+
         /* ===== QNA SECTION ===== */
         #qna {
             background: var(--white);
@@ -1077,23 +1220,71 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 28px;
             align-items: center;
             justify-items: center;
         }
 
-        .client-logo {
-            width: 150px;
-            height: 150px;
-            background: var(--bg-light);
-            border-radius: 8px;
+        .clients-segments {
             display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .client-segment {
+            border: 1px solid rgba(31, 78, 121, 0.18);
+            background: linear-gradient(135deg, rgba(31, 78, 121, 0.05), rgba(212, 175, 55, 0.08));
+            color: #173853;
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .clients-logo-section {
+            margin-top: 34px;
+        }
+
+        .clients-logo-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #4f79aa;
+            margin-bottom: 16px;
+        }
+
+        .client-logo {
+            width: 160px;
+            min-height: 160px;
+            background: linear-gradient(145deg, #ffffff 0%, #f4f7fb 100%);
+            border-radius: 8px;
+            border: 1px solid rgba(31, 78, 121, 0.12);
+            padding: 18px 14px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
             font-weight: 600;
             color: var(--text-light);
             transition: all 0.3s;
             cursor: default;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .client-logo-mark {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-deep), var(--primary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
         }
 
         .client-logo:hover {
@@ -1108,7 +1299,7 @@
 
         .excellence-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -1127,6 +1318,63 @@
             gap: 10px;
         }
 
+        .excellence-intro {
+            max-width: none;
+            margin-top: 10px;
+            margin-bottom: 26px;
+            color: #2d2d2d;
+            text-align: center;
+        }
+
+        .team-section {
+            background: #ffffff;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, rgba(31, 78, 121, 0.05) 0%, rgba(212, 175, 55, 0.08) 100%);
+            border: 1px solid rgba(31, 78, 121, 0.12);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .team-card h3 {
+            margin-top: 0;
+            color: #173853;
+            font-size: 22px;
+        }
+
+        .team-card p {
+            margin-bottom: 0;
+        }
+
+        .team-quote {
+            margin-top: 22px;
+            background: linear-gradient(120deg, var(--primary-deep) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 24px rgba(0, 20, 60, 0.16);
+        }
+
+        .team-quote p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 10px;
+        }
+
+        .team-quote strong {
+            color: var(--secondary-color);
+            font-size: 18px;
+        }
+
         /* ===== VISION & MISSION ===== */
         #vision {
             background: white;
@@ -1137,7 +1385,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             margin-top: 40px;
-            max-width: 1000px;
+            width: 100%;
+            max-width: none;
         }
 
         .vm-box {
@@ -1145,10 +1394,47 @@
             padding: 40px;
             border-radius: 8px;
             border-left: 5px solid var(--secondary-color);
+            text-align: center;
+            height: 100%;
         }
 
         .vm-box h3 {
             margin-top: 0;
+        }
+
+        .values-box {
+            margin-top: 24px;
+            width: 100%;
+            max-width: none;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid rgba(31, 78, 121, 0.12);
+            padding: 18px 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .value-card h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #173853;
+            font-size: 16px;
+        }
+
+        .value-card p {
+            margin-bottom: 0;
+            font-size: 13px;
+            line-height: 1.55;
         }
 
         /* ===== DOCUMENTATION SECTION ===== */
@@ -1315,8 +1601,25 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
+            .excellence-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .qna-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
         }
 
@@ -1411,6 +1714,22 @@
             .form-heading h2 {
                 text-align: center;
             }
+
+            .about-intro {
+                font-size: 14px;
+                line-height: 1.55;
+                padding: 20px 18px;
+            }
+
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .client-item {
+                height: 100px;
+                padding: 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1473,6 +1792,10 @@
                 height: 220px;
             }
 
+            .about-item {
+                height: 310px;
+            }
+
             .about-gold-title {
                 font-size: 24px;
             }
@@ -1481,11 +1804,29 @@
                 font-size: 17px;
             }
 
+            .about-intro {
+                font-size: 14px;
+                line-height: 1.55;
+                padding: 16px 14px;
+            }
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
+            .excellence-grid {
+                grid-template-columns: 1fr;
+            }
+
             .qna-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1503,6 +1844,16 @@
 
             .qna-blue-title {
                 font-size: 17px;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .client-item {
+                height: 90px;
+                padding: 14px;
             }
         }
 
@@ -1528,15 +1879,14 @@
                 <button class="nav-btn" onclick="scrollToSection('home')">HOME</button>
                 <button class="nav-btn" onclick="scrollToSection('about')">ABOUT US</button>
                 <button class="nav-btn" onclick="scrollToSection('services')">OUR SERVICES</button>
-                <button class="nav-btn" onclick="scrollToSection('excellence')">OUR EXCELLENCE</button>
-                <button class="nav-btn" onclick="scrollToSection('testimonials')">TESTIMONIAL</button>
-                <button class="nav-btn" onclick="scrollToSection('qna')">QnA</button>
+                <button class="nav-btn" onclick="scrollToSection('vision')">VISION & MISSION</button>
+                <button class="nav-btn" onclick="scrollToSection('client-segments')">OUR CLIENTS</button>
                 <div class="more-nav" id="desktopMoreNav">
                     <button class="nav-btn" type="button" id="desktopMoreBtn" aria-expanded="false" onclick="toggleDesktopMoreNav(event)">MORE</button>
                     <div class="more-nav-menu" id="desktopMoreMenu">
-                        <button class="more-nav-item" type="button" onclick="scrollToSection('clients')">OUR CLIENTS</button>
-                        <button class="more-nav-item" type="button" onclick="scrollToSection('vision')">VISION & MISSION</button>
-                        <button class="more-nav-item" type="button" onclick="scrollToSection('documentation')">DOCUMENTATION</button>
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('clients')">CLIENTS</button>
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('team')">OUR TEAM</button>
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('qna')">FAQ</button>
                         <button class="more-nav-item" type="button" onclick="scrollToSection('contact')">CONTACT US</button>
                         <button class="more-nav-item" type="button" onclick="scrollToSection('form-section')">FORM</button>
                     </div>
@@ -1550,12 +1900,11 @@
             <a href="#home" onclick="scrollToSection('home'); return false;">HOME</a>
             <a href="#about" onclick="scrollToSection('about'); return false;">ABOUT US</a>
             <a href="#services" onclick="scrollToSection('services'); return false;">OUR SERVICES</a>
-            <a href="#excellence" onclick="scrollToSection('excellence'); return false;">OUR EXCELLENCE</a>
-            <a href="#testimonials" onclick="scrollToSection('testimonials'); return false;">TESTIMONIAL</a>
-            <a href="#qna" onclick="scrollToSection('qna'); return false;">QnA</a>
-            <a href="#clients" onclick="scrollToSection('clients'); return false;">OUR CLIENTS</a>
             <a href="#vision" onclick="scrollToSection('vision'); return false;">VISION & MISSION</a>
-            <a href="#documentation" onclick="scrollToSection('documentation'); return false;">DOCUMENTATION</a>
+            <a href="#client-segments" onclick="scrollToSection('client-segments'); return false;">OUR CLIENTS</a>
+            <a href="#clients" onclick="scrollToSection('clients'); return false;">CLIENTS</a>
+            <a href="#team" onclick="scrollToSection('team'); return false;">OUR TEAM</a>
+            <a href="#qna" onclick="scrollToSection('qna'); return false;">FAQ</a>
             <a href="#contact" onclick="scrollToSection('contact'); return false;">CONTACT US</a>
             <a href="#form-section" onclick="scrollToSection('form-section'); return false;">FORM</a>
         </nav>
@@ -1618,32 +1967,23 @@
 
             <div class="about-grid">
                 <div class="about-item">
-                    <img src="aset/legal expertise.png" alt="Legal Expertise">
-                    <h3 class="about-gold-title">Legal Expertise</h3>
-                    <h4 class="about-blue-title">Absolute Legal Accuracy.</h4>
-                    <p>Legal document translation with precise juridical terminology and deep legal context understanding.</p>
+                    <img src="aset/uncompromising accuracy.jpg" alt="Uncompromising Accuracy">
+                    <h3 class="about-gold-title">Uncompromising Accuracy</h3>
                 </div>
-
                 <div class="about-item">
-                    <img src="aset/strategic balance.png" alt="Strategic Balance">
-                    <h3 class="about-gold-title">Strategic Balance</h3>
-                    <h4 class="about-blue-title">Language and Legal Certainty.</h4>
-                    <p>Balancing linguistic precision with legal logic to produce documents that are valid and contextually sound.</p>
+                    <img src="aset/precise terminology.jpg" alt="Precise Terminology">
+                    <h3 class="about-gold-title">Precise Terminology</h3>
                 </div>
-
                 <div class="about-item">
-                    <img src="aset/Absolute Confidentiality.jpg" alt="Absolute Confidentiality">
-                    <h3 class="about-gold-title">Absolute Confidentiality</h3>
-                    <h4 class="about-blue-title">Maximum Data Protection.</h4>
-                    <p>Every process is secured through strict confidentiality protocols and non-disclosure agreements.</p>
+                    <img src="aset/professional reliability.jpg" alt="Professional Reliability">
+                    <h3 class="about-gold-title">Professional Reliability</h3>
                 </div>
+            </div>
 
-                <div class="about-item">
-                    <img src="aset/profesional excellence.jpg" alt="Professional Excellence">
-                    <h3 class="about-gold-title">Professional Excellence</h3>
-                    <h4 class="about-blue-title">Global Institutional Standard.</h4>
-                    <p>Professional services trusted for litigation requirements, corporate contracts, and official international documents.</p>
-                </div>
+            <div class="about-intro">
+                <p>HENTPRO delivers premium legal and business translation services with uncompromising accuracy, precise terminology, and professional reliability.</p>
+                <p>In international law and business, every word carries consequences—whether in contracts, compliance documents, or personal milestones such as birth certificates, marriage records, visas, wills, and testaments.</p>
+                <p>We go beyond translation—we safeguard our clients’ meaning, protect their legal interests, and uphold their credibility across languages.</p>
             </div>
         </div>
     </section>
@@ -1656,138 +1996,187 @@
 
             <div class="services-grid">
                 <div class="service-item">
-                    <img src="aset/data security.png" alt="Data Security">
-                    <h3 class="service-gold-title">Data Security</h3>
-                    <h4 class="service-blue-title">Sovereign Data Protection.</h4>
-                    <p>High-encryption handling and confidentiality assurance for client information with maximum security.</p>
+                    <img src="aset/legal drafting.webp" alt="Corporate Services">
+                    <h3 class="service-gold-title">Corporate Services</h3>
+                    <h4 class="service-blue-title">Precision that protects your business</h4>
+                    <p>We assist law firms, corporations, and institutions with translations of contracts, compliance documents, business reports, and international agreements. Our work safeguards meaning, mitigates risk, and supports strategic decisions with accuracy and reliability.</p>
                 </div>
                 <div class="service-item">
-                    <img src="aset/legal drafting.png" alt="Legal Drafting">
-                    <h3 class="service-gold-title">Legal Drafting</h3>
-                    <h4 class="service-blue-title">Precise Legal Documentation.</h4>
-                    <p>Preparation and revision of legal documents using accurate and formal terminology standards.</p>
-                </div>
-                <div class="service-item">
-                    <img src="aset/document.png" alt="Document Review">
-                    <h3 class="service-gold-title">Document Review</h3>
-                    <h4 class="service-blue-title">Accurate File Assessment.</h4>
-                    <p>Careful review of legal documents to ensure clarity, consistency, and readiness for formal use.</p>
-                </div>
-                <div class="service-item">
-                    <img src="aset/contract translation.png" alt="Contract Translation">
-                    <h3 class="service-gold-title">Contract Translation</h3>
-                    <h4 class="service-blue-title">Certified Contract Solutions.</h4>
-                    <p>Professional translation of contracts and international agreements with legal accuracy and clarity.</p>
+                    <img src="aset/document.webp" alt="Individual Services">
+                    <h3 class="service-gold-title">Individual Services</h3>
+                    <h4 class="service-blue-title">Accuracy for life’s legal milestones.</h4>
+                    <p>From birth certificates for visa applications to marriage documents overseas, foreign nationals marrying in Indonesia, death certificates, wills, and testaments—HENTPRO provides certified translations that ensure your most important records are legally sound and internationally recognised.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== EXCELLENCES SECTION ===== -->
-    <section id="excellence">
+    <!-- ===== VISION & MISSION SECTION ===== -->
+    <section id="vision">
         <div class="max-width">
-            <h2 id="excellence-title">Our Excellence</h2>
-            <div class="excellence-grid">
-                <div class="excellence-item">
-                    <h3>✨ Assured Quality</h3>
-                    <p>Every translation passes a strict quality assurance process to ensure outstanding results.</p>
+            <h2 id="vision-title">Vision, Mission & Core Values</h2>
+            <div class="vm-container">
+                <div class="vm-box">
+                    <h3 id="vision-subtitle">Vision</h3>
+                    <p id="vision-text">
+                        To set the global standard for legal and business translation where every word is precise,
+                        every document is protected, and every client's credibility is upheld across languages.
+                    </p>
                 </div>
-                <div class="excellence-item">
-                    <h3>⏱️ On-Time Delivery</h3>
-                    <p>We understand deadlines and consistently deliver according to agreed timelines.</p>
-                </div>
-                <div class="excellence-item">
-                    <h3>💡 Experienced Experts</h3>
-                    <p>Our translators and consultants hold international certifications and extensive practical experience.</p>
-                </div>
-                <div class="excellence-item">
-                    <h3>🔐 Premium Data Security</h3>
-                    <p>Client data is protected by strong encryption and accessible only to authorized personnel.</p>
-                </div>
-                <div class="excellence-item">
-                    <h3>🌍 Global Reach</h3>
-                    <p>We support multiple language pairs with deep cultural and legal context understanding.</p>
-                </div>
-                <div class="excellence-item">
-                    <h3>📞 Full Support</h3>
-                    <p>Our customer support team is ready to help whenever you need assistance.</p>
+                <div class="vm-box">
+                    <h3 id="mission-subtitle">Mission</h3>
+                    <p id="mission-text">
+                        HENTPRO safeguards meaning and credibility across languages, delivering precise legal and
+                        business translations that protect both institutions and individuals in every document.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ===== TESTIMONIALS SECTION ===== -->
-    <section id="testimonials">
-        <div class="max-width">
-            <h2 id="testimonials-title">Client Testimonial</h2>
-            <div class="testimonials-divider"></div>
-
-            <div class="testimonial-carousel" aria-label="Client testimonial carousel">
-                <button class="testimonial-arrow" type="button" aria-label="Previous testimonial" onclick="moveTestimonial(-1)">‹</button>
-
-                <div class="testimonial-viewport">
-                    <div class="testimonial-track" id="testimonialTrack">
-                        <article class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <img src="aset/legal expertise.png" alt="Legal Expertise testimonial image">
-                                <div class="testimonial-slide-title">Legal Expertise</div>
-                                <div class="testimonial-slide-subtitle">Absolute Legal Accuracy.</div>
-                                <div class="testimonial-content">
-                                    "HENTPRO delivered precise legal translations with excellent consistency and professionalism."
-                                </div>
-                                <div class="testimonial-source">- PT Maju Jaya, Jakarta</div>
-                            </div>
-                        </article>
-
-                        <article class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <img src="aset/strategic balance.png" alt="Strategic Balance testimonial image">
-                                <div class="testimonial-slide-title">Strategic Balance</div>
-                                <div class="testimonial-slide-subtitle">Language and Legal Certainty.</div>
-                                <div class="testimonial-content">
-                                    "Their work balanced legal meaning and language clarity perfectly for our international documents."
-                                </div>
-                                <div class="testimonial-source">- Maju Bersama Law Office, Surabaya</div>
-                            </div>
-                        </article>
-
-                        <article class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <img src="aset/Absolute Confidentiality.jpg" alt="Absolute Confidentiality testimonial image">
-                                <div class="testimonial-slide-title">Absolute Confidentiality</div>
-                                <div class="testimonial-slide-subtitle">Maximum Data Protection.</div>
-                                <div class="testimonial-content">
-                                    "We trust HENTPRO because confidentiality is handled with disciplined security and care."
-                                </div>
-                                <div class="testimonial-source">- PT Global Trading, Bandung</div>
-                            </div>
-                        </article>
-
-                        <article class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <img src="aset/profesional excellence.jpg" alt="Professional Excellence testimonial image">
-                                <div class="testimonial-slide-title">Professional Excellence</div>
-                                <div class="testimonial-slide-subtitle">Global Institutional Standard.</div>
-                                <div class="testimonial-content">
-                                    "The final result was polished, reliable, and suitable for formal institutional use."
-                                </div>
-                                <div class="testimonial-source">- Legal Partners Asia, Singapore</div>
-                            </div>
-                        </article>
+            <div class="values-box">
+                <div class="vm-box">
+                    <h3>Core Values of HENTPRO</h3>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <h4>Accuracy</h4>
+                            <p>Every word matters. We uphold uncompromising precision in terminology and meaning to protect our clients' interests.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Integrity</h4>
+                            <p>We operate with honesty, confidentiality, and professionalism, ensuring trust in every engagement.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Reliability</h4>
+                            <p>Clients can depend on us to deliver consistent quality, on time, and aligned with international standards.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Expertise</h4>
+                            <p>Our specialised knowledge in law and business ensures translations that reflect context, nuance, and authority.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Protection</h4>
+                            <p>We safeguard not only language but also the credibility and legal standing of every client, corporate or individual.</p>
+                        </div>
                     </div>
                 </div>
-
-                <button class="testimonial-arrow" type="button" aria-label="Next testimonial" onclick="moveTestimonial(1)">›</button>
             </div>
-
-            <div class="testimonial-dots" id="testimonialDots" aria-label="Testimonial pagination"></div>
         </div>
     </section>
 
-    <!-- ===== QNA SECTION ===== -->
+    <!-- ===== CLIENT SEGMENTS SECTION ===== -->
+    <section id="client-segments">
+        <div class="max-width">
+            <h2 id="client-segments-title">Our Clients</h2>
+            <p id="client-segments-desc">We serve various client segments, including:</p>
+            <div class="clients-segments" aria-label="Client segments">
+                <span class="client-segment">Law Firms &amp; Notary Offices</span>
+                <span class="client-segment">Private &amp; Multinational Companies</span>
+                <span class="client-segment">Government Agencies &amp; State-Owned Enterprises</span>
+                <span class="client-segment">Legal Professionals</span>
+                <span class="client-segment">Individuals</span>
+            </div>
+
+            <div class="clients-logo-section">
+                <div class="clients-logo-title">Some of our clients</div>
+                <div class="clients-grid" aria-label="Selected client logos">
+                    <div class="client-logo">
+                        <div class="client-logo-mark">PMJ</div>
+                        PT Maju Jaya
+                    </div>
+                    <div class="client-logo">
+                        <div class="client-logo-mark">KHA</div>
+                        Kantor Hukum ABC
+                    </div>
+                    <div class="client-logo">
+                        <div class="client-logo-mark">GC</div>
+                        Global Corp
+                    </div>
+                    <div class="client-logo">
+                        <div class="client-logo-mark">BI</div>
+                        Bank Internasional
+                    </div>
+                    <div class="client-logo">
+                        <div class="client-logo-mark">UX</div>
+                        Universitas XYZ
+                    </div>
+                    <div class="client-logo">
+                        <div class="client-logo-mark">LP</div>
+                        Legal Partners
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENTS SECTION - CLIENT LOGOS CAROUSEL ===== -->
+    <section id="clients">
+        <div class="max-width">
+            <h2>Clients</h2>
+            <div class="clients-divider"></div>
+
+            <div class="clients-carousel" aria-label="Clients logo carousel">
+                <div class="clients-track">
+                    <div class="client-item"><img src="aset/client/avya lawfirm.webp" alt="Avya Law Firm"></div>
+                    <div class="client-item"><img src="aset/client/eka dharma.webp" alt="Eka Dharma"></div>
+                    <div class="client-item"><img src="aset/client/GHP.webp" alt="GHP"></div>
+                    <div class="client-item"><img src="aset/client/hijau.webp" alt="Hijau"></div>
+                    <div class="client-item"><img src="aset/client/MNP.webp" alt="MNP"></div>
+                    <div class="client-item"><img src="aset/client/pertamina.webp" alt="Pertamina"></div>
+                    <div class="client-item"><img src="aset/client/S&T.webp" alt="S&T"></div>
+                    <div class="client-item"><img src="aset/client/telkomsel.webp" alt="Telkomsel"></div>
+                    <div class="client-item"><img src="aset/client/tutwuri.webp" alt="Tutwuri"></div>
+                    <div class="client-item"><img src="aset/client/ungu.webp" alt="Ungu"></div>
+
+                    <div class="client-item"><img src="aset/client/avya lawfirm.webp" alt="Avya Law Firm"></div>
+                    <div class="client-item"><img src="aset/client/eka dharma.webp" alt="Eka Dharma"></div>
+                    <div class="client-item"><img src="aset/client/GHP.webp" alt="GHP"></div>
+                    <div class="client-item"><img src="aset/client/hijau.webp" alt="Hijau"></div>
+                    <div class="client-item"><img src="aset/client/MNP.webp" alt="MNP"></div>
+                    <div class="client-item"><img src="aset/client/pertamina.webp" alt="Pertamina"></div>
+                    <div class="client-item"><img src="aset/client/S&T.webp" alt="S&T"></div>
+                    <div class="client-item"><img src="aset/client/telkomsel.webp" alt="Telkomsel"></div>
+                    <div class="client-item"><img src="aset/client/tutwuri.webp" alt="Tutwuri"></div>
+                    <div class="client-item"><img src="aset/client/ungu.webp" alt="Ungu"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM SECTION ===== -->
+    <section id="team" class="team-section">
+        <div class="max-width">
+            <h2 id="team-title">Our Team</h2>
+            <p class="excellence-intro">HENTPRO's main strength lies in its team of competent, certified, and experienced professionals in their fields.</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <h3>Sworn Translators</h3>
+                    <p>Officially authorised to translate legal documents and legally recognised government documents.</p>
+                </div>
+                <div class="team-card">
+                    <h3>Specialist Legal &amp; Business Translators</h3>
+                    <p>Experienced in handling contracts, international agreements, corporate documents, and legal regulations.</p>
+                </div>
+                <div class="team-card">
+                    <h3>Professional Editors &amp; Proofreaders</h3>
+                    <p>Ensuring that every document is error-free, terminologically consistent, and professionally sound.</p>
+                </div>
+                <div class="team-card">
+                    <h3>Language Trainers &amp; Consultants</h3>
+                    <p>Providing training and mentoring to improve language competency in a professional environment.</p>
+                </div>
+            </div>
+
+            <div class="team-quote">
+                <p>Every member of our team works to high standards, upholding integrity, confidentiality, and accuracy in every project.</p>
+                <strong>Bridging Law and Language with Precision</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
     <section id="qna">
         <div class="max-width">
-            <h2>QnA</h2>
+            <h2>FAQ</h2>
             <div class="qna-divider"></div>
 
             <div class="qna-grid">
@@ -1819,124 +2208,42 @@
         </div>
     </section>
 
-    <!-- ===== CLIENTS SECTION ===== -->
-    <section id="clients">
-        <div class="max-width">
-            <h2 id="clients-title">Our Clients</h2>
-            <p id="clients-desc">We are trusted by leading companies and institutions across Indonesia.</p>
-            <div class="clients-grid">
-                <div class="client-logo">PT Maju Jaya</div>
-                <div class="client-logo">Kantor Hukum ABC</div>
-                <div class="client-logo">Global Corp</div>
-                <div class="client-logo">Bank Internasional</div>
-                <div class="client-logo">Universitas XYZ</div>
-                <div class="client-logo">Trading Company</div>
-                <div class="client-logo">Legal Partners</div>
-                <div class="client-logo">PT Sukses Bersama</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== VISION & MISSION SECTION ===== -->
-    <section id="vision">
-        <div class="max-width">
-            <h2 id="vision-title">Vision & Mission</h2>
-            <div class="vm-container">
-                <div class="vm-box">
-                    <h3 id="vision-subtitle">👁️ Our Vision</h3>
-                    <p id="vision-text">
-                        To become Indonesia's leading provider of translation and legal linguistic consultation services,
-                        trusted by legal institutions, businesses, and government in delivering accurate, professional,
-                        and high-integrity language solutions.
-                    </p>
-                </div>
-                <div class="vm-box">
-                    <h3 id="mission-subtitle">🎯 Our Mission</h3>
-                    <p id="mission-text">
-                        To provide high-quality certified translation and legal linguistic consultation services, protect client
-                        confidentiality with best-in-class security standards, and continuously innovate by combining language
-                        expertise with legal system understanding to support client success.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== DOCUMENTATION SECTION ===== -->
-    <section id="documentation">
-        <div class="max-width">
-            <h2 id="documentation-title">Documentation</h2>
-            <p id="documentation-desc">A collection of photos and records from projects we have successfully delivered.</p>
-            <div class="docs-grid">
-                <div class="doc-item">
-                    <div class="doc-icon">📸</div>
-                    <h3>Client Documentation</h3>
-                    <p>Highlights from client consultation sessions and completed project activities.</p>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-icon">📁</div>
-                    <h3>Project Portfolio</h3>
-                    <p>Examples of translated and certified documents from selected assignments.</p>
-                </div>
-                <div class="doc-item">
-                    <div class="doc-icon">🏆</div>
-                    <h3>Certifications & Awards</h3>
-                    <p>Official certifications and recognitions we have received from trusted institutions.</p>
-                </div>
-                <div class="doc-item is-hidden docs-extra-item">
-                    <div class="doc-icon">📊</div>
-                    <h3>Performance Reports</h3>
-                    <p>Transparent reports on quality, timeliness, and client satisfaction metrics.</p>
-                </div>
-                <div class="doc-item is-hidden docs-extra-item">
-                    <div class="doc-icon">🎓</div>
-                    <h3>Team & Credentials</h3>
-                    <p>Profiles of our professional team with international certifications and credentials.</p>
-                </div>
-                <div class="doc-item is-hidden docs-extra-item">
-                    <div class="doc-icon">📚</div>
-                    <h3>References & Standards</h3>
-                    <p>Legal references, international standards, and practical guidelines we follow.</p>
-                </div>
-            </div>
-            <div class="docs-more-wrap">
-                <button type="button" class="docs-more-btn" id="docsMoreBtn" aria-expanded="false">MORE</button>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== CONTACT SECTION ===== -->
     <section id="contact">
         <div class="max-width">
             <h2 id="contact-title">Contact Us</h2>
             <div class="contact-container">
                 <div class="contact-visual">
-                    <img src="aset/contact us.PNG" alt="Contact Us">
+                    <img src="aset/contact us.webp" alt="Contact Us">
                 </div>
 
                 <div>
                     <div class="contact-info">
-                        <h3 id="contact-info-title">Hentpro</h3>
+                        <h3 id="contact-info-title">HENTPRO</h3>
                         <div class="contact-item">
                             <strong id="address-label">Address:</strong>
                             <p class="contact-address">
-                                SAHID SUDIRMAN CENTER 56TH FLOOR<br>
-                                JL. JENDERAL SUDIRMAN NO. 86, <br>
+                                Sahid Sudirman Center 56th Floor<br>
+                                Jl. Jenderal Sudirman No. 86<br>
                                 JAKARTA 10220<br>
                                 INDONESIA
                             </p>
                         </div>
                         <div class="contact-item">
                             <strong id="phone-label">Phone:</strong>
-                            <p><a href="tel:+622182272411">0813-8896-6868</a></p>
+                            <p><a href="tel:+622180631934">+62 21 8063 1934</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <strong class="fax-label">Fax:</strong>
+                            <p>+62 21 8063 1999</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>M:</strong>
+                            <p><a href="tel:+6281388966868">+62 813-8896-6868</a></p>
                         </div>
                         <div class="contact-item">
                             <strong id="email-label">Email:</strong>
-                            <p><a href="mailto:hentpro45@gmail.com">hentpro45@gmail.com</a></p>
-                        </div>
-                        <div class="contact-item">
-                            <strong id="website-label">Website:</strong>
-                            <p><a href="https://www.hentpro.com" target="_blank">www.hentpro.com</a></p>
+                            <p><a href="mailto:hentproaksara@gmail.com">hentproaksara@gmail.com</a></p>
                         </div>
                     </div>
                 </div>
@@ -2000,50 +2307,13 @@
                     <img src="aset/logo biru.png" alt="HENTPRO Logo" class="logo-img">
                 </div>
             </div>
-            <p id="footer-desc">Hentpro - Bridging Law and Language with Precision</p>
+            <p id="footer-desc">HENTPRO is more than a translation service - it is your strategic partner.</p>
             <p id="footer-copyright">© 2026 Hentpro. All rights reserved.</p>
-            <p id="footer-professional">Professional • Integrity • Balanced</p>
+            <p id="footer-professional">Accuracy that upholds your credibility.</p>
         </div>
     </footer>
 
     <script>
-        const testimonialTrack = document.getElementById('testimonialTrack');
-        const testimonialDots = document.getElementById('testimonialDots');
-        const testimonialSlides = testimonialTrack ? Array.from(testimonialTrack.children) : [];
-        let activeTestimonialIndex = 0;
-
-        function renderTestimonialDots() {
-            if (!testimonialDots || testimonialSlides.length === 0) return;
-
-            testimonialDots.innerHTML = '';
-            testimonialSlides.forEach((_, index) => {
-                const dot = document.createElement('button');
-                dot.type = 'button';
-                dot.className = 'testimonial-dot' + (index === activeTestimonialIndex ? ' active' : '');
-                dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
-                dot.addEventListener('click', () => showTestimonial(index));
-                testimonialDots.appendChild(dot);
-            });
-        }
-
-        function showTestimonial(index) {
-            if (!testimonialTrack || testimonialSlides.length === 0) return;
-
-            activeTestimonialIndex = (index + testimonialSlides.length) % testimonialSlides.length;
-            testimonialTrack.style.transform = `translateX(-${activeTestimonialIndex * 100}%)`;
-
-            if (testimonialDots) {
-                const dots = testimonialDots.querySelectorAll('.testimonial-dot');
-                dots.forEach((dot, dotIndex) => {
-                    dot.classList.toggle('active', dotIndex === activeTestimonialIndex);
-                });
-            }
-        }
-
-        function moveTestimonial(direction) {
-            showTestimonial(activeTestimonialIndex + direction);
-        }
-
         function initDocumentationToggle() {
             const toggleButton = document.getElementById('docsMoreBtn');
             const hiddenItems = document.querySelectorAll('.docs-extra-item');
@@ -2063,8 +2333,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            renderTestimonialDots();
-            showTestimonial(0);
             initDocumentationToggle();
         });
 
