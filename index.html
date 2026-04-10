@@ -17,6 +17,9 @@
             --secondary-color: #d4af37;
             --primary-deep: #163a5b;
             --azure-soft: #2b628f;
+            --embedded-form-height: 1167px;
+            --embedded-form-width: 604px;
+            --left-stack-gap: 27px;
             --white: #ffffff;
             --black: #000000;
             --text-dark: #000000;
@@ -763,7 +766,7 @@
         }
 
         .form-section-wrap {
-            max-width: 1044px;
+            max-width: 1320px;
             margin: 0 auto;
             padding-top: 0;
             padding-left: 22px;
@@ -812,9 +815,10 @@
         .contact-form-map {
             width: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: var(--embedded-form-width) var(--embedded-form-width);
             gap: 24px;
             align-items: stretch;
+            justify-content: center;
             background: #ffffff;
             padding: 22px;
             border-radius: 12px;
@@ -822,10 +826,36 @@
             margin-top: 0;
         }
 
+        .map-column {
+            display: grid;
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            gap: var(--left-stack-gap);
+            height: var(--embedded-form-height);
+            width: var(--embedded-form-width);
+            overflow: hidden;
+        }
+
+        .office-photo-box {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: none;
+            background: #fff;
+        }
+
+        .office-photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .form-column {
             display: flex;
             flex-direction: column;
-            height: 100%;
+            height: var(--embedded-form-height);
+            width: var(--embedded-form-width);
         }
 
         .form-heading {
@@ -851,11 +881,16 @@
         .map-frame {
             width: 100%;
             height: 100%;
-            min-height: 520px;
+            min-height: 0;
             border: 0;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: none;
             background: #fff;
+        }
+
+        .form-column > iframe {
+            width: 100%;
+            height: 100%;
         }
 
         .form-column form {
@@ -1708,12 +1743,28 @@
                 min-height: 260px;
             }
 
-            .map-frame {
-                min-height: 340px;
-            }
-
             .contact-form-map {
                 grid-template-columns: 1fr;
+            }
+
+            .map-column {
+                height: auto;
+                grid-template-rows: auto auto;
+            }
+
+            .office-photo-box,
+            .map-frame {
+                aspect-ratio: 1 / 1;
+                height: auto;
+            }
+
+            .form-column {
+                width: 100%;
+                height: auto;
+            }
+
+            .form-column > iframe {
+                min-height: var(--embedded-form-height);
             }
 
             .form-heading h2 {
@@ -1889,7 +1940,7 @@
                 <div class="more-nav" id="desktopMoreNav">
                     <button class="nav-btn" type="button" id="desktopMoreBtn" aria-expanded="false" onclick="toggleDesktopMoreNav(event)">MORE</button>
                     <div class="more-nav-menu" id="desktopMoreMenu">
-                        <button class="more-nav-item" type="button" onclick="scrollToSection('clients')">CLIENTS</button>
+                        <button class="more-nav-item" type="button" onclick="scrollToSection('client-segments')">CLIENTS</button>
                         <button class="more-nav-item" type="button" onclick="scrollToSection('team')">OUR TEAM</button>
                         <button class="more-nav-item" type="button" onclick="scrollToSection('qna')">FAQ</button>
                         <button class="more-nav-item" type="button" onclick="scrollToSection('contact')">CONTACT US</button>
@@ -1907,7 +1958,7 @@
             <a href="#services" onclick="scrollToSection('services'); return false;">OUR SERVICES</a>
             <a href="#vision" onclick="scrollToSection('vision'); return false;">VISION & MISSION</a>
             <a href="#client-segments" onclick="scrollToSection('client-segments'); return false;">OUR CLIENTS</a>
-            <a href="#clients" onclick="scrollToSection('clients'); return false;">CLIENTS</a>
+            <a href="#client-segments" onclick="scrollToSection('client-segments'); return false;">CLIENTS</a>
             <a href="#team" onclick="scrollToSection('team'); return false;">OUR TEAM</a>
             <a href="#qna" onclick="scrollToSection('qna'); return false;">FAQ</a>
             <a href="#contact" onclick="scrollToSection('contact'); return false;">CONTACT US</a>
@@ -2081,47 +2132,10 @@
             </div>
 
             <div class="clients-logo-section">
-                <div class="clients-logo-title">Some of our clients</div>
-                <div class="clients-grid" aria-label="Selected client logos">
-                    <div class="client-logo">
-                        <div class="client-logo-mark">PMJ</div>
-                        PT Maju Jaya
-                    </div>
-                    <div class="client-logo">
-                        <div class="client-logo-mark">KHA</div>
-                        Kantor Hukum ABC
-                    </div>
-                    <div class="client-logo">
-                        <div class="client-logo-mark">GC</div>
-                        Global Corp
-                    </div>
-                    <div class="client-logo">
-                        <div class="client-logo-mark">BI</div>
-                        Bank Internasional
-                    </div>
-                    <div class="client-logo">
-                        <div class="client-logo-mark">UX</div>
-                        Universitas XYZ
-                    </div>
-                    <div class="client-logo">
-                        <div class="client-logo-mark">LP</div>
-                        Legal Partners
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CLIENTS SECTION - CLIENT LOGOS CAROUSEL ===== -->
-    <section id="clients">
-        <div class="max-width">
-            <h2>Clients</h2>
-            <div class="clients-divider"></div>
-
-            <div class="clients-carousel" aria-label="Clients logo carousel">
-                <div class="clients-track">
+                <div class="clients-carousel" aria-label="Clients logo carousel">
+                    <div class="clients-track">
                     <div class="client-item"><img src="aset/client/avya lawfirm.webp" alt="Avya Law Firm"></div>
-                    <div class="client-item"><img src="aset/client/eka dharma.webp" alt="Eka Dharma"></div>
+                    <div class="client-item"><img src="aset/client/bpk.webp" alt="BPK"></div>
                     <div class="client-item"><img src="aset/client/GHP.webp" alt="GHP"></div>
                     <div class="client-item"><img src="aset/client/hijau.webp" alt="Hijau"></div>
                     <div class="client-item"><img src="aset/client/MNP.webp" alt="MNP"></div>
@@ -2129,10 +2143,11 @@
                     <div class="client-item"><img src="aset/client/S&T.webp" alt="S&T"></div>
                     <div class="client-item"><img src="aset/client/telkomsel.webp" alt="Telkomsel"></div>
                     <div class="client-item"><img src="aset/client/tutwuri.webp" alt="Tutwuri"></div>
+                    <div class="client-item"><img src="aset/client/lsp.webp" alt="LSP"></div>
                     <div class="client-item"><img src="aset/client/ungu.webp" alt="Ungu"></div>
 
                     <div class="client-item"><img src="aset/client/avya lawfirm.webp" alt="Avya Law Firm"></div>
-                    <div class="client-item"><img src="aset/client/eka dharma.webp" alt="Eka Dharma"></div>
+                    <div class="client-item"><img src="aset/client/bpk.webp" alt="BPK"></div>
                     <div class="client-item"><img src="aset/client/GHP.webp" alt="GHP"></div>
                     <div class="client-item"><img src="aset/client/hijau.webp" alt="Hijau"></div>
                     <div class="client-item"><img src="aset/client/MNP.webp" alt="MNP"></div>
@@ -2140,6 +2155,7 @@
                     <div class="client-item"><img src="aset/client/S&T.webp" alt="S&T"></div>
                     <div class="client-item"><img src="aset/client/telkomsel.webp" alt="Telkomsel"></div>
                     <div class="client-item"><img src="aset/client/tutwuri.webp" alt="Tutwuri"></div>
+                    <div class="client-item"><img src="aset/client/lsp.webp" alt="LSP"></div>
                     <div class="client-item"><img src="aset/client/ungu.webp" alt="Ungu"></div>
                 </div>
             </div>
@@ -2250,8 +2266,8 @@
                             <strong id="email-label">Email:</strong>
                             <p><a href="mailto:hentproaksara@gmail.com">hentproaksara@gmail.com</a></p>
                         </div>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </section>
@@ -2265,13 +2281,18 @@
             </div>
 
             <div class="contact-form-map">
-                <iframe
-                    class="map-frame"
-                    title="HENTPRO Office Location"
-                    src="https://www.google.com/maps?q=SAHID%20SUDIRMAN%20CENTER%2056TH%20FLOOR%20JL.%20JENDERAL%20SUDIRMAN%20NO.%2086%20JAKARTA%2010220%20INDONESIA&output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <div class="map-column">
+                    <div class="office-photo-box">
+                        <img src="aset/kantor.webp" alt="HENTPRO Office">
+                    </div>
+                    <iframe
+                        class="map-frame"
+                        title="HENTPRO Office Location"
+                        src="https://www.google.com/maps?q=SAHID%20SUDIRMAN%20CENTER%2056TH%20FLOOR%20JL.%20JENDERAL%20SUDIRMAN%20NO.%2086%20JAKARTA%2010220%20INDONESIA&output=embed"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
 
                 <div class="form-column">
                     <iframe
@@ -2282,7 +2303,7 @@
                       allow="geolocation; microphone; camera; fullscreen; payment"
                                             src="https://form.jotform.com/260977846200058"
                       frameborder="0"
-                      style="min-width:100%;max-width:100%;height:539px;border:none;"
+                      style="min-width:100%;max-width:100%;height:1167px;border:none;"
                       scrolling="no"
                     >
                     </iframe>
@@ -2309,7 +2330,7 @@
                         <span class="logo-title">HENTPRO</span>
                         <span class="logo-subtitle">Bridging Law and Language with Precision</span>
                     </div>
-                    <img src="aset/logo biru.png" alt="HENTPRO Logo" class="logo-img">
+                    <img src="aset/logo biru.webp" alt="HENTPRO Logo" class="logo-img">
                 </div>
             </div>
             <p id="footer-desc">HENTPRO is more than a translation service - it is your strategic partner.</p>
@@ -2337,8 +2358,49 @@
             });
         }
 
+        function syncFormVisualHeights() {
+            const mapColumn = document.querySelector('.map-column');
+            const formColumn = document.querySelector('.form-column');
+            const formFrame = document.getElementById('JotFormIFrame-260977846200058');
+
+            if (!mapColumn || !formColumn || !formFrame) return;
+
+            if (window.innerWidth <= 768) {
+                mapColumn.style.removeProperty('height');
+                formColumn.style.removeProperty('height');
+                return;
+            }
+
+            const frameHeight = Math.round(formFrame.getBoundingClientRect().height || formFrame.offsetHeight);
+            if (frameHeight > 0) {
+                mapColumn.style.height = `${frameHeight}px`;
+                formColumn.style.height = `${frameHeight}px`;
+            }
+        }
+
+        function initFormHeightSync() {
+            const formFrame = document.getElementById('JotFormIFrame-260977846200058');
+            if (!formFrame) return;
+
+            formFrame.addEventListener('load', () => {
+                syncFormVisualHeights();
+                setTimeout(syncFormVisualHeights, 300);
+                setTimeout(syncFormVisualHeights, 900);
+            });
+
+            if ('ResizeObserver' in window) {
+                const resizeObserver = new ResizeObserver(() => {
+                    syncFormVisualHeights();
+                });
+                resizeObserver.observe(formFrame);
+            }
+
+            syncFormVisualHeights();
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             initDocumentationToggle();
+            initFormHeightSync();
         });
 
         function toggleMobileNav() {
@@ -2416,6 +2478,8 @@
             if (window.innerWidth > 768) {
                 closeMobileNav();
             }
+
+            syncFormVisualHeights();
         });
 
         document.addEventListener('click', function(event) {
