@@ -26,6 +26,7 @@
 
         body {
             font-family: Arial, sans-serif;
+            font-size: 17px;
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
@@ -331,17 +332,43 @@
         }
 
         h3 {
-            font-size: 24px;
+            font-size: 26px;
             color: var(--black);
             margin-top: 20px;
             margin-bottom: 15px;
         }
 
+        h4 {
+            font-size: 20px;
+            color: var(--black);
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
         p {
             color: var(--text-light);
             margin-bottom: 15px;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.8;
+        }
+
+        .about-intro,
+        .about-intro p,
+        .service-item p,
+        .qna-item p,
+        .team-card p,
+        .value-card p,
+        .contact-item p,
+        .contact-item a,
+        .contact-item strong,
+        .excellence-intro,
+        .team-quote p,
+        .footer-content p,
+        .hero-left p,
+        .hero-right p,
+        .hero-middle li {
+            font-size: 18px;
+            line-height: 1.75;
         }
 
         /* ===== HOME SECTION ===== */
@@ -424,7 +451,7 @@
         }
 
         .hero-right h4 {
-            font-size: 18px;
+            font-size: 20px;
             color: #f2f8ff;
             margin-bottom: 10px;
             font-weight: 700;
@@ -447,7 +474,7 @@
             position: relative;
             padding-left: 18px;
             margin-bottom: 8px;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         .hero-right li::before {
@@ -556,7 +583,7 @@
         }
 
         .hero-middle h3 {
-            font-size: 16px;
+            font-size: 20px;
             color: var(--black);
             font-weight: 600;
             margin: 15px 0 10px 0;
@@ -569,7 +596,7 @@
         }
 
         .hero-middle li {
-            font-size: 13px;
+            font-size: 18px;
             color: var(--text-light);
             margin-bottom: 8px;
             padding-left: 20px;
@@ -646,7 +673,7 @@
             text-align: left;
             color: #111;
             font-family: Arial, sans-serif;
-            font-size: 14px;
+            font-size: 18px;
             line-height: 1.55;
             letter-spacing: 0;
             background: #ffffff;
@@ -728,7 +755,7 @@
 
         .about-blue-title {
             color: #4f79aa;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -737,7 +764,7 @@
             color: #111;
             margin: 0;
             line-height: 1.55;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         /* ===== SERVICES SECTION ===== */
@@ -817,7 +844,7 @@
 
         .service-blue-title {
             color: #4f79aa;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -826,7 +853,7 @@
             color: #111;
             margin: 0;
             line-height: 1.55;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         /* ===== CONTACT SECTION ===== */
@@ -890,6 +917,7 @@
             margin-top: 0;
             text-transform: uppercase;
             color: var(--primary-color);
+            font-size: 24px;
         }
 
         .fax-label {
@@ -909,6 +937,7 @@
             color: var(--primary-color);
             display: block;
             margin-bottom: 5px;
+            font-size: 20px;
         }
 
         .contact-address {
@@ -988,7 +1017,7 @@
             text-align: center;
             margin-bottom: 0;
             color: var(--text-light);
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .map-frame {
@@ -1352,7 +1381,7 @@
 
         .qna-blue-title {
             color: #4f79aa;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -1361,7 +1390,7 @@
             color: #111;
             margin: 0;
             line-height: 1.55;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         /* ===== CLIENTS SECTION ===== */
@@ -1391,7 +1420,7 @@
             color: #173853;
             padding: 10px 14px;
             border-radius: 999px;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 600;
         }
 
@@ -1400,7 +1429,7 @@
         }
 
         .clients-logo-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: #4f79aa;
             margin-bottom: 16px;
@@ -1477,6 +1506,7 @@
             margin-bottom: 26px;
             color: #2d2d2d;
             text-align: center;
+            font-size: 18px;
         }
 
         .team-section {
@@ -1501,7 +1531,7 @@
         .team-card h3 {
             margin-top: 0;
             color: #173853;
-            font-size: 22px;
+            font-size: 24px;
         }
 
         .team-card p {
@@ -1525,7 +1555,7 @@
 
         .team-quote strong {
             color: var(--secondary-color);
-            font-size: 18px;
+            font-size: 20px;
         }
 
         /* ===== VISION & MISSION ===== */
@@ -1581,12 +1611,12 @@
             margin-top: 0;
             margin-bottom: 8px;
             color: #173853;
-            font-size: 16px;
+            font-size: 20px;
         }
 
         .value-card p {
             margin-bottom: 0;
-            font-size: 13px;
+            font-size: 18px;
             line-height: 1.55;
         }
 
@@ -1930,9 +1960,27 @@
             }
 
             .about-intro {
-                font-size: 14px;
+                font-size: 18px;
                 line-height: 1.55;
                 padding: 20px 18px;
+            }
+
+            .service-item p,
+            .qna-item p,
+            .team-card p,
+            .value-card p,
+            .contact-item p,
+            .contact-item a,
+            .contact-item strong,
+            .excellence-intro,
+            .team-quote p,
+            .footer-content p,
+            .hero-left p,
+            .hero-right p,
+            .hero-middle li,
+            .about-intro p {
+                font-size: 18px;
+                line-height: 1.68;
             }
 
             .clients-grid {
@@ -2015,13 +2063,31 @@
             }
 
             .about-blue-title {
-                font-size: 17px;
+                font-size: 20px;
             }
 
             .about-intro {
-                font-size: 14px;
+                font-size: 18px;
                 line-height: 1.55;
                 padding: 16px 14px;
+            }
+
+            .service-item p,
+            .qna-item p,
+            .team-card p,
+            .value-card p,
+            .contact-item p,
+            .contact-item a,
+            .contact-item strong,
+            .excellence-intro,
+            .team-quote p,
+            .footer-content p,
+            .hero-left p,
+            .hero-right p,
+            .hero-middle li,
+            .about-intro p {
+                font-size: 18px;
+                line-height: 1.65;
             }
 
             .services-grid {
@@ -2049,7 +2115,7 @@
             }
 
             .service-blue-title {
-                font-size: 17px;
+                font-size: 20px;
             }
 
             .qna-gold-title {
@@ -2057,7 +2123,7 @@
             }
 
             .qna-blue-title {
-                font-size: 17px;
+                font-size: 20px;
             }
 
             .clients-grid {
