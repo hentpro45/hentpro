@@ -928,7 +928,7 @@
 }
 
 .contact-card-desc {
-    color: #ffffff !important;
+    color: #e5c07b !important;
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 30px;
@@ -984,7 +984,17 @@
     line-height: 1.6;
 }
 
-/* SISI KANAN: FORM JOTFORM */
+/* Maps Wrapper */
+.contact-map-wrapper {
+    margin-top: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-map-wrapper iframe {
+    display: block;
+}
 .contact-form-side {
     display: flex;
     flex-direction: column;
