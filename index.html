@@ -257,6 +257,7 @@
 
             <div class="contact-form-side" id="form-section">
                 <div class="form-wrapper">
+                    <h2 class="form-side-title">Professional support,just a message away.</h2>
                     <iframe
                         id="JotFormIFrame-260977846200058"
                         title="Send us a message"
@@ -314,22 +315,21 @@
         }
 
         function syncFormVisualHeights() {
-            const mapColumn = document.querySelector('.map-column') || document.querySelector('.contact-side-column');
-            const formColumn = document.querySelector('.form-column');
+            const contactInfoCard = document.querySelector('.contact-info-card');
             const formFrame = document.getElementById('JotFormIFrame-260977846200058');
 
-            if (!mapColumn || !formColumn || !formFrame) return;
+            if (!contactInfoCard || !formFrame) return;
 
+            // Disable syncing on small screens (stacked layout)
             if (window.innerWidth <= 768) {
-                mapColumn.style.removeProperty('height');
-                formColumn.style.removeProperty('height');
+                contactInfoCard.style.removeProperty('min-height');
                 return;
             }
 
             const frameHeight = Math.round(formFrame.getBoundingClientRect().height || formFrame.offsetHeight);
             if (frameHeight > 0) {
-                mapColumn.style.height = `${frameHeight}px`;
-                formColumn.style.height = `${frameHeight}px`;
+                // Make the left card at least as tall as the form side
+                contactInfoCard.style.minHeight = `${frameHeight}px`;
             }
         }
 

@@ -987,6 +987,8 @@
 /* Maps Wrapper */
 .contact-map-wrapper {
     margin-top: 25px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -994,6 +996,22 @@
 
 .contact-map-wrapper iframe {
     display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+    .contact-map-wrapper {
+        height: 0;
+        padding-top: 100%;
+        position: relative;
+    }
+
+    .contact-map-wrapper iframe {
+        position: absolute;
+        inset: 0;
+    }
 }
 .contact-form-side {
     display: flex;
@@ -1003,7 +1021,7 @@
 
 .form-side-title {
     color: #1a367e !important;
-    font-size: 32px !important;
+    font-size: 36px !important;
     border: none !important;
     padding: 0 !important;
     margin-bottom: 15px !important;
